@@ -1,0 +1,30 @@
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+
+# Environment variables (like SECRET_KEY)
+.env
+
+# VS Code settings (if you use it)
+.vscode/
+
+# SQLite database
+*.sqlite3
+
+# Django migrations (compiled)
+*/migrations/__pycache__/
+*/migrations/*.pyc
+
+# Logs
+*.log
+
+# Compiled/static files (optional, if you're collecting static)
+staticfiles/
+static/
+
+# OS-specific
+.DS_Store
+Thumbs.db
