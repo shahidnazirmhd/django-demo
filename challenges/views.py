@@ -18,6 +18,16 @@ monthly_challenges = {
     "december": "Reflect on the year!"
 }
 
+def monthly_challenge_number(request, month):
+    months = list(monthly_challenges.keys())
+
+    if 1 <= month <= 12:    #if month >= 1 and month <= 12:
+        month_name = months[month - 1]
+        challenge_text = monthly_challenges[month_name]
+        return HttpResponse(f"<h1>{month_name.capitalize()}: {challenge_text}</h1>")
+    else:
+        return HttpResponseNotFound("<h1>Invalid month. Please provide a number between 1 and 12.</h1>")
+
 
 def monthly_challenge(request, month):
     month = month.lower()
