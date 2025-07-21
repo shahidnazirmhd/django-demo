@@ -19,8 +19,22 @@ monthly_challenges = {
     "december": "Reflect on the year!"
 }
 
+
+def index(request):
+    list_items = ""
+    months = _get_month_list()
+
+    for month in months:
+        cap_month = month.capitalize()
+        month_path = reverse("month-challenge", args=[month])
+        list_items += f"<li><a href=\"{month_path}\">{cap_month}</a></li>"
+
+    response_data = f"<ul>{list_items}</ul>"
+    return HttpResponse(response_data)
+
+
 def monthly_challenge_number(request, month):
-    months = list(monthly_challenges.keys())
+    months = _get_month_list()
     if not 1 <= month <= 12:   #if month < 1 or month > len(months):
         return HttpResponseNotFound("<h1>Invalid month. Please try again.</h1>")
 
@@ -36,3 +50,7 @@ def monthly_challenge(request, month):
     except:
         return HttpResponseNotFound("<h1>Invalid month. Please try again.</h1>")
     return HttpResponse(f"<h1>{challenge_text}</h1>")
+
+
+def _get_month_list():
+    return list(monthly_challenges.keys())
