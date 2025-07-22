@@ -45,15 +45,12 @@ def monthly_challenge_number(request, month):
 
 
 def monthly_challenge(request, month):
-    month = month.lower()
+    month_in_lower = month.lower()
     try:
-        challenge_text = monthly_challenges[month.lower()]
-        #respose_data = f"<h1>{challenge_text}</h1>"
-        #respose_data = render_to_string("challenges/challenge.html")
+        challenge_text = monthly_challenges[month_in_lower]
+        return render(request, "challenges/challenge.html", {"render_text": challenge_text, "render_month": month_in_lower.capitalize()})
     except:
         return HttpResponseNotFound("<h1>Invalid month. Please try again.</h1>")
-    #return HttpResponse(respose_data)
-    return render(request, "challenges/challenge.html")
 
 
 def _get_month_list():
