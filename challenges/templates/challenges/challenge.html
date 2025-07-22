@@ -7,6 +7,10 @@
 </head>
 <body>
     <h1>{{render_month|capfirst}}'s Challenge</h1>
+    {% if render_text is not None%}
     <h2>{{render_text}}</h2>
+    {% else %}
+    <p>There is no challenge for this month.</p>
+    {% endif %}
 </body>
 </html>

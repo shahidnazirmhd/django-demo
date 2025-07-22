@@ -7,7 +7,9 @@ from django.urls import reverse
 
 monthly_challenges = {
     "january": "Walk 10,000 steps every day!",
-    "february": "Read a book every week!",
+    "february": 
+    #"Read a book every week!",
+    None,
     "march": "Eat no sugar for the whole month!",
     "april": "Go for a run 3 times a week!",
     "may": "Drink 2 liters of water daily!",
