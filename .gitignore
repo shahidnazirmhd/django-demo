@@ -22,8 +22,8 @@ venv/
 *.log
 
 # Compiled/static files (optional, if you're collecting static)
-staticfiles/
-static/
+# staticfiles/
+# static/
 
 # OS-specific
 .DS_Store
