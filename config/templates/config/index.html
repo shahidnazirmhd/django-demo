@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Challenges</title>
-</head>
-<body>
-    <h1>Welcome to the Monthly Challenges Project!</h1>
-    <p>Click <a href="{% url "challenges-index" %}">here</a> to navigate to the challenges.</p>
-</body>
-</html>
+{% extends "config/base.html" %}
+{% block page_title %}Home | Challenges{% endblock %}
+
+{% block content %}
+<h1>Welcome to the Monthly Challenges Project!</h1>
+<p>Click <a href="{% url "challenges-index" %}">here</a> to navigate to the challenges.</p>
+{% endblock %}
