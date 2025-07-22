@@ -1,5 +1,11 @@
-{% extends "config/base.html" %}
+{% extends "base.html" %}
+{% load static %}
+
 {% block page_title %}{{render_month|capfirst}} Challenge{% endblock %}
+{% block css_files %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "challenges/main.css" %}">
+{% endblock %}
 
 {% block content %}
 {% include "challenges/includes/header.html" with backward_path="challenges-index" backward_name="All challenges" %}
