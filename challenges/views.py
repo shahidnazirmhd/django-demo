@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import Http404, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
-#from django.template.loader import render_to_string
+from django.template.loader import render_to_string
 # Create your views here.
 
 
@@ -31,7 +31,8 @@ def index(request):
 def monthly_challenge_number(request, month):
     months = _get_month_list()
     if not 1 <= month <= 12:   #if month < 1 or month > len(months):
-        return HttpResponseNotFound("<h1>Invalid month. Please try again.</h1>")
+        not_found_response = render_to_string("config/404.html")
+        return HttpResponseNotFound(not_found_response)
 
     redirect_month_name = months[month - 1]
     redirect_path = reverse("month-challenge", args=[redirect_month_name])
@@ -44,7 +45,8 @@ def monthly_challenge(request, month):
         challenge_text = monthly_challenges[month_in_lower]
         return render(request, "challenges/challenge.html", {"render_text": challenge_text, "render_month": month_in_lower})
     except:
-        return HttpResponseNotFound("<h1>Invalid month. Please try again.</h1>")
+        not_found_response = render_to_string("config/404.html")
+        return HttpResponseNotFound(not_found_response)  # Can use Http404(In production). it bring 404.html page automatically, if 404.html page placed in root templates folfder 
 
 
 def _get_month_list():
