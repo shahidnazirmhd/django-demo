@@ -1,0 +1,1 @@
+Django+CSS Simple Demo Project
